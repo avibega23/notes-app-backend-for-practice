@@ -1,6 +1,7 @@
 const express = require("express")
 const zod = require("zod");
 
+
 const verifyOnSignup = zod.object({
     username: zod.string(),
     email: zod.string().email(),
