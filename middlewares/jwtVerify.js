@@ -12,7 +12,7 @@ function jwtVerify(req,res,next)
 }
 function authrizer(req,res,next)
 {
-     const token = req.body.token;
+     const token = req.header.token;
     try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.body.user = decoded; // put userId on req for access in next function
@@ -22,5 +22,5 @@ function authrizer(req,res,next)
   }
 }
 
-module.exports = jwtVerify
-module.exports = authrizer
+
+module.exports = {jwtVerify,authrizer}
